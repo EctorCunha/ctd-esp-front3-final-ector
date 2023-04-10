@@ -1,7 +1,5 @@
 import * as Yup from "yup";
 
-// Fazer validações com checkout.route.ts
-
 export const userSchema = Yup.object().shape({
     firstname: Yup.string().required("Campo obrigatório"),
     lastname: Yup.string().required("Campo obrigatório"),

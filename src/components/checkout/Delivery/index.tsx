@@ -13,8 +13,6 @@ export default function Delivery(onChange: CheckoutInput){
             <InputLabel>Selecione o método de transporte</InputLabel>
             <Select
             label="Selecione o método de transporte"
-            // onChange={onChange}
-            // value={}
             name="delivery"
             >
                 <MenuItem value={20}>Correios</MenuItem>

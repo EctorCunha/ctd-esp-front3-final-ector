@@ -32,16 +32,13 @@ export default function Steps({ thumbnail, title, prices, id }: Comic) {
     alert("Mensagem enviada com sucesso!");
     console.log(values);
     e?.target.reset();
-    // await fetch("jasodajsdlk");
   };
 
   function onChange(ev: any) {
     const { name, value } = ev.target;
     setValues({ ...values, [name]: value });
-    // console.log(values)
   }
 
-  const api = "http://localhost:3000/api/checkout";
 
   function StepBack() {
     setCurrentStep(currentStep - 1);
@@ -58,9 +55,6 @@ export default function Steps({ thumbnail, title, prices, id }: Comic) {
     }
 
     if (currentStep >= 3) {
-      // Pegar as informações do produto e dos formulários e enviar e depois mostrar na página de sucesso
-      // axios.post('http://localhost:3000/api/checkout', values)
-      // handler(api,values)
       push(`/success/`);
     }
   }

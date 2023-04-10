@@ -21,7 +21,6 @@ export default function Payment({ card, onChange }: CheckoutInput) {
     alert("Mensagem enviada com sucesso!");
     console.log(values);
     e?.target.reset();
-    // await fetch("/api/checkout");
   };
 
   return (

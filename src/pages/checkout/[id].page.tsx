@@ -1,12 +1,10 @@
 import { GetStaticPaths, GetStaticPropsContext } from "next";
-// import Checkout from "src/components/checkout";
 import Steps from "../../components/checkout/Steps";
 import { getComic, getComics } from "../../services/marvel/marvel.service";
 import { Comic } from "src/types/getComics";
 import { Box } from "@mui/material";
-import { CheckoutInput } from "../../features/checkout/checkout.types";
 
-export default function Index(data: Comic, values: CheckoutInput) {
+export default function Index(data: Comic) {
   return (
     <Box m={10} sx={{ width: "50%" }}>
       <Steps {...data}/>

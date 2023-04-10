@@ -15,5 +15,4 @@ const Template: ComponentStory<typeof BodySingle> = (args: any) => (
 export const Primary = Template.bind({});
 Primary.args = {
   title: "Single body",
-  // containerProps: {sx: {backgroundColor:'#faa' }}
 };
