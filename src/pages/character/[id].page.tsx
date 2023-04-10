@@ -1,5 +1,5 @@
 import CharacterInfo from "../../components/comic-details";
-import { getCharacter } from "src/services/marvel/marvel.service";
+import { getCharacter } from "../../services/marvel/marvel.service";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import React from "react";
 import { Character } from "../../types/getCharacter";

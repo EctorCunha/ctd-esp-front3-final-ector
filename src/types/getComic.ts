@@ -16,7 +16,7 @@ export interface Comic {
   textObjects: TextObject[];
   resourceURI: string;
   urls: Url[];
-  series: Series;
+  series?: Series;
   variants: any[];
   collections: any[];
   collectedIssues: any[];
@@ -26,10 +26,10 @@ export interface Comic {
   prices: Price[];
   thumbnail: Thumbnail;
   images: Image[];
-  creators: Creators;
-  characters: Characters;
-  stories: Stories;
-  events: Events;
+  creators?: Creators;
+  characters?: Characters;
+  stories?: Stories;
+  events?: Events;
   simpleComic: SimpleComic[]
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

@@ -9,9 +9,10 @@ import OnLoad from "../onload";
 
 export default function ComicInfo(comic: Comic) {
   const { title, thumbnail, prices, stock, characters, id } = comic;
+  console.log(comic)
   const { push } = useRouter();
 
-  const thumb = `${thumbnail.path}.${thumbnail.extension}`;
+  const thumb = `${thumbnail?.path}.${thumbnail?.extension}`;
 
   return (
     <>
@@ -33,21 +34,21 @@ export default function ComicInfo(comic: Comic) {
 
             <Typography variant={"h5"}><b>Personagens:</b> </Typography>
             <List sx={{ gap: "10px" }}>
-              {characters.items.map((character) => (
+              {characters?.items?.map((character) => (
                 <Link
                   href={`/character/${getCharacterIdFromUrl(
-                    character.resourceURI
+                    character?.resourceURI
                   )}`}
                 >
                   <ListItem
                     sx={{ cursor: "pointer" }}
-                  >{`${character.name}`}</ListItem>
+                  >{`${character?.name}`}</ListItem>
                 </Link>
               ))}
             </List>
             <Typography variant={"h5"}><b>Preços:</b></Typography>
             <List>
-              {prices.map((price) => {
+              {prices?.map((price) => {
                 return (
                   <ListItem>
                     <Typography>{`R$${price.price}`}</Typography>

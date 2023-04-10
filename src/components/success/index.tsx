@@ -1,5 +1,5 @@
 import { Box,Typography, Button, Alert } from "@mui/material";
-import { CheckoutInput } from "src/features/checkout/checkout.types";
+import { CheckoutInput } from "../../features/checkout/checkout.types";
 
 export default function Success(values: CheckoutInput) {
   console.log(values)

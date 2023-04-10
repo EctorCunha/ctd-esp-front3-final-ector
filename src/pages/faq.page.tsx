@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Box, Accordion, AccordionSummary, AccordionDetails, Typography} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { faqsData } from "src/components/faqs/faqsData";
+import { faqsData } from "../components/faqs/faqsData";
 
 export default function SimpleAccordion() {
   return (

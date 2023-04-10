@@ -1,5 +1,5 @@
 import {Box, Select, MenuItem, InputLabel, FormControl} from '@mui/material'
-import { CheckoutInput } from 'src/features/checkout/checkout.types'
+import { CheckoutInput } from '../../../features/checkout/checkout.types'
 
 export default function Delivery(onChange: CheckoutInput){
     return (

@@ -4,14 +4,14 @@ import LayoutCheckout from "./layout-checkout";
 
 const mockHeaderProps = jest.fn();
 jest.mock(
-  "dh-marvel/components/layouts/header/general-header.component",
+  "src/components/layouts/header/general-header.component",
   () => (props: HeaderProps) => {
     mockHeaderProps(props);
     return <div>Header</div>;
   }
 );
 jest.mock(
-  "dh-marvel/components/layouts/footer/general-footer.component",
+  "src/components/layouts/footer/general-footer.component",
   () => () => {
     return <div>Footer</div>;
   }

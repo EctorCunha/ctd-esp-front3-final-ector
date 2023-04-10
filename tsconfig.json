@@ -16,12 +16,12 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "dh-marvel/components/*": ["components/*"],
-      "dh-marvel/services/*": ["services/*"],
-      "dh-marvel/features/*": ["features/*"],
-      "dh-marvel/pages/*": ["pages/*"],
-      "dh-marvel/styles/*": ["styles/*"],
-      "dh-marvel/test/*": ["test/*"]
+      "src/components/*": ["components/*"],
+      "src/services/*": ["services/*"],
+      "src/features/*": ["features/*"],
+      "src/pages/*": ["pages/*"],
+      "src/styles/*": ["styles/*"],
+      "src/test/*": ["test/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts"],

@@ -6,13 +6,10 @@ import Delivery from "../Delivery";
 import Payment from "../Payment";
 import Address from "../Address";
 import { Comic } from "src/types/getComics";
-import { CheckoutInput } from "src/features/checkout/checkout.types";
-import handler from "src/pages/api/checkout.route";
-import axios from "axios";
+import { CheckoutInput } from "../../../features/checkout/checkout.types";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { userSchema } from "src/services/checkout/checkoutUser";
-import { Formik } from "formik";
+import { userSchema } from "../../../services/checkout/checkoutUser";
 
 export default function Steps({ thumbnail, title, prices, id }: Comic) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -87,15 +84,80 @@ export default function Steps({ thumbnail, title, prices, id }: Comic) {
 
           {currentStep === 0 && (
             <Products
-              title={title}
-              thumbnail={thumbnail}
-              prices={prices}
-              onChange={onChange}
-            />
+          title={title}
+          thumbnail={thumbnail}
+          prices={prices}
+          onChange={onChange}
+          id={0} digitalId={0} issueNumber={0} variantDescription={""} description={""}
+          modified={""} isbn={""} upc={""} diamondCode={""} ean={""} issn={""} format={""}
+          pageCount={0} textObjects={[]} resourceURI={""} urls={[]} variants={[]}
+          collections={[]} collectedIssues={[]} dates={[]} price={0} stock={0} images={[]}
+          simpleComic={[]} series={undefined} creators={undefined} 
+          characters={undefined} stories={undefined} events={undefined}   />
           )}
-          {currentStep === 1 && <Address onChange={onChange} />}
-          {currentStep === 2 && <Delivery onChange={onChange} />}
-          {currentStep === 3 && <Payment onChange={onChange} />}
+          {currentStep === 1 && <Address onChange={onChange} customer={{
+        firstname: "",
+        lastname: "",
+        email: "",
+        address: {
+          address1: "",
+          address2: null,
+          city: "",
+          state: "",
+          zipCode: ""
+        }
+      }} card={{
+        number: "",
+        cvc: "",
+        expDate: "",
+        nameOnCard: ""
+      }} order={{
+        name: "",
+        image: "",
+        price: 0
+      }} />}
+          {currentStep === 2 && <Delivery onChange={onChange} customer={{
+        firstname: "",
+        lastname: "",
+        email: "",
+        address: {
+          address1: "",
+          address2: null,
+          city: "",
+          state: "",
+          zipCode: ""
+        }
+      }} card={{
+        number: "",
+        cvc: "",
+        expDate: "",
+        nameOnCard: ""
+      }} order={{
+        name: "",
+        image: "",
+        price: 0
+      }} />}
+          {currentStep === 3 && <Payment onChange={onChange} customer={{
+        firstname: "",
+        lastname: "",
+        email: "",
+        address: {
+          address1: "",
+          address2: null,
+          city: "",
+          state: "",
+          zipCode: ""
+        }
+      }} card={{
+        number: "",
+        cvc: "",
+        expDate: "",
+        nameOnCard: ""
+      }} order={{
+        name: "",
+        image: "",
+        price: 0
+      }} />}
           <Box sx={{ display: "flex", justifyContent: "space-around" }}>
             <Button variant="contained" onClick={StepBack}>
               Voltar

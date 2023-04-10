@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticPropsContext } from "next";
 // import Checkout from "src/components/checkout";
-import Steps from "src/components/checkout/Steps";
-import { getComic, getComics } from "src/services/marvel/marvel.service";
+import Steps from "../../components/checkout/Steps";
+import { getComic, getComics } from "../../services/marvel/marvel.service";
 import { Comic } from "src/types/getComics";
 import { Box } from "@mui/material";
-import { CheckoutInput } from "src/features/checkout/checkout.types";
+import { CheckoutInput } from "../../features/checkout/checkout.types";
 
 export default function Index(data: Comic, values: CheckoutInput) {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import GeneralHeader from "dh-marvel/components/layouts/header/general-header.component";
+import GeneralHeader from "../../../components/layouts/header/general-header.component";
 
 export default {
   title: "Layout/Header/GeneralHeader",

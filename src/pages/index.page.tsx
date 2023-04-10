@@ -1,14 +1,13 @@
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import BodySingle from "src/components/layouts/body/single/body-single";
-import { getComic, getComics } from "src/services/marvel/marvel.service";
+import BodySingle from "../components/layouts/body/single/body-single";
+import { getComic, getComics } from "../services/marvel/marvel.service";
 import { Comic } from "../types/getComic";
 import CardHero from "../components/card/card-hero";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import Pagination from "@mui/material/Pagination";
 
 export default function Index({ data }: { data: Comic[] }) {
-  // getComic(2).then((data) => console.log(data));
   return (
     <>
       <Head>
@@ -41,7 +40,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   const data = comics.results
     .filter((comic) => !!comic.thumbnail && !!comic.description)
-    .slice(0, 12);
+    .slice(10, 22);
 
   return {
     props: {

@@ -2,7 +2,7 @@ import { Card, Container, Stack, TextField } from "@mui/material";
 import { CheckoutInput } from "../../../features/checkout/checkout.types";
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { cartSchema } from "src/services/checkout/checkoutUser";
+import { cartSchema } from "../../../services/checkout/checkoutUser";
 
 export default function Payment({ card, onChange }: CheckoutInput) {
   const methods = useForm<CheckoutInput>({ resolver: yupResolver(cartSchema) });

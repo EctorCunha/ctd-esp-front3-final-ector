@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-// import IndexPage from "dh-marvel/pages/index.page";
 import Index from "../pages/index.page";
 
 describe("IndexPage", () => {
