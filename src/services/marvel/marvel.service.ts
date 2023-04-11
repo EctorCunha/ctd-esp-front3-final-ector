@@ -1,7 +1,7 @@
 import { Comic, GetComics } from "../../types/getComics";
 import { generateAuthenticationString } from "../../services/marvel/marvel-auth.service";
 
-const MARVEL_API = process.env.MARVEL_API_URL;
+const MARVEL_API = process.env.NEXT_PUBLIC_MARVEL_API_URL;
 
 export const fetchApi = async (endpoint: string, urlParams?: string) => {
   const authString = generateAuthenticationString();
