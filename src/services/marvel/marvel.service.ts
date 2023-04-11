@@ -1,11 +1,11 @@
 import { Comic, GetComics } from "../../types/getComics";
 import { generateAuthenticationString } from "../../services/marvel/marvel-auth.service";
 
-const MARVEL_API_URL = process.env.NEXT_PUBLIC_MARVEL_API_URL;
+const MARVEL_API = process.env.MARVEL_API_URL;
 
 export const fetchApi = async (endpoint: string, urlParams?: string) => {
   const authString = generateAuthenticationString();
-  const url = `${MARVEL_API_URL}/${endpoint}?${authString}&${urlParams || ""}`;
+  const url = `${MARVEL_API}/${endpoint}?${authString}&${urlParams || ""}`;
   const response = await fetch(url);
   return await response.json();
 };

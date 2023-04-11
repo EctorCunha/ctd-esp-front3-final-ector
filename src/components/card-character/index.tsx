@@ -37,7 +37,7 @@ export default function CharacterInfo(comic: Character) {
                   ? encodeURIComponent(getComicIdFromUrl(comics.resourceURI))
                   : "";
                 return (
-                  <Link href={`/comic/${characterId}`}>
+                  <Link key={comics.name} href={`/comic/${characterId}`}>
                     <ListItem
                       sx={{
                         cursor: "pointer",

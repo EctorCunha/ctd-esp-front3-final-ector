@@ -32,7 +32,7 @@ export default function CardHero(comic: Comic) {
         alt="card-hero-image"
         height="250"
         image={`${thumbnail.path}.${thumbnail.extension}`}
-        sx={{ objectFit: "cover", objectPosition: "35% 25%" }}
+        sx={{ objectFit: "cover", objectPosition: "35% 25%", height:'20vh' }}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

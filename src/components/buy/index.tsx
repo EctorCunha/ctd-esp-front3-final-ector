@@ -27,13 +27,13 @@ export default function ComicInfo(comic: Comic) {
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', gap:'3rem', flexDirection:'column'}}>
+        <Box>
           <Typography variant="h4" component="h4">
             {title}
           </Typography>
 
           <Box>
-            <Typography component={"h3"}><b>Personagens:</b></Typography>
+            <Typography variant="h5" component={"h2"}><b>Personagens:</b></Typography>
             <List sx={{ gap: "10px", width: "fit-content" }}>
               {characters.items.map((character) => {
                 const characterId = character.resourceURI
@@ -42,7 +42,7 @@ export default function ComicInfo(comic: Comic) {
                     )
                   : "";
                 return (
-                  <Link href={`/character/${characterId}`}>
+                  <Link key={character.name} href={`/character/${characterId}`}>
                     <ListItem
                       sx={{
                         cursor: "pointer",
@@ -56,7 +56,7 @@ export default function ComicInfo(comic: Comic) {
           </Box>
 
           <Box>
-            <Typography component={"h3"}><b>Preços:</b></Typography>
+            <Typography variant="h5" component={"h3"}><b>Preços:</b></Typography>
             <Typography>R$ {prices[0].price}</Typography>
           </Box>
 

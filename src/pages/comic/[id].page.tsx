@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
+import { GetStaticPaths, GetStaticPropsContext } from "next";
 import ComicInfo from "../../components/buy";
 import { getComic, getComics } from "../../services/marvel/marvel.service";
-import { GetStaticPaths, GetStaticPropsContext } from "next";
 import { Comic } from "../../types/getComic";
 
 export default function Index(data: Comic) {
@@ -19,7 +19,7 @@ export default function Index(data: Comic) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data: comics } = await getComics(100, 100);
+  const { data: comics } = await getComics();
 
   const data = comics.results
     .filter((comic) => !!comic.thumbnail && !!comic.description)

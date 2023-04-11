@@ -23,7 +23,7 @@ export default function Index({ data }: { data: Comic[] }) {
           justifyContent="center"
         >
           {data?.map((comic) => (
-            <Grid2 xs={12} sm={6} md={4}>
+            <Grid2 key={comic.id} xs={12} sm={6} md={4}>
               <CardHero {...comic} />
             </Grid2>
           ))}
@@ -34,7 +34,7 @@ export default function Index({ data }: { data: Comic[] }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data: comics } = await getComics(100, 100);
+  const { data: comics } = await getComics(10, 100);
   
   const data = comics.results
   .filter((comic) => !!comic.thumbnail && !!comic.description)
