@@ -1,5 +1,4 @@
 export interface GetComics {
-  characters: any;
   data: {
     count: number;
     limit: number;

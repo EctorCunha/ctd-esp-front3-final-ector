@@ -22,7 +22,7 @@ const GeneralFooter = () => {
         flexGrow={1}
         alignItems={"center"}
         justifyContent={"center"}
-        color={"#fff"}
+        color={"secondary.main"}
         sx={{ textDecoration: "none" }}
       >
         Powered by{" "}

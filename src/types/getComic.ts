@@ -30,13 +30,6 @@ export interface Comic {
   characters: Characters;
   stories: Stories;
   events: Events;
-  simpleComic: SimpleComic[]
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export interface SimpleComic {
-  id: number;
-  title: string;
 }
 
 export interface TextObject {
@@ -89,7 +82,6 @@ export interface Item {
 }
 
 export interface Characters {
-  map(arg0: (items: { resourceURI: string; name: any; }) => JSX.Element): import("react").ReactNode;
   available: number;
   collectionURI: string;
   items: Item2[];

@@ -1,17 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import { HeaderProps } from "@storybook/mdx1-csf/dist/ts/stories/Header";
-import LayoutCheckout from "./layout-checkout";
+import LayoutCheckout from "../../components/layouts/layout-checkout";
 
 const mockHeaderProps = jest.fn();
 jest.mock(
-  "dh-marvel/components/layouts/header/general-header.component",
+  "../../components/layouts/header/general-header.component",
   () => (props: HeaderProps) => {
     mockHeaderProps(props);
     return <div>Header</div>;
   }
 );
 jest.mock(
-  "dh-marvel/components/layouts/footer/general-footer.component",
+  "../../components/layouts/footer/general-footer.component",
   () => () => {
     return <div>Footer</div>;
   }

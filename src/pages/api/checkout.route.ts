@@ -11,9 +11,10 @@ import {
 
 const serverError = "error";
 export const invalidAddress = "invalid";
-export const validCard = "4242 4242 4242 4242".replace(" ", "");
-export const withoutFundsCard = "4111 4111 4111 4111".replace(" ", "");
-export const withoutAuthorizationCard = "4000 4000 4000 4000".replace(" ", "");
+// removed the replace, since it was removing only the first white space
+export const validCard = "4242 4242 4242 4242";
+export const withoutFundsCard = "4111 4111 4111 4111";
+export const withoutAuthorizationCard = "4000 4000 4000 4000";
 
 type Data =
   | {

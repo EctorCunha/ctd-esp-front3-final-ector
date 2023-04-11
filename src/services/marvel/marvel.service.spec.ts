@@ -2,7 +2,7 @@ import {
   getCharacter,
   getComic,
   getComics,
-} from "./marvel.service";
+} from "../../services/marvel/marvel.service";
 import comics from "../../test/mocks/comics";
 import character from "../../test/mocks/character";
 import comic from "../../test/mocks/comic";

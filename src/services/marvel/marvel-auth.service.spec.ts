@@ -1,4 +1,4 @@
-import { generateAuthenticationString } from "./marvel-auth.service";
+import { generateAuthenticationString } from "../../services/marvel/marvel-auth.service";
 
 describe("MarvelAuthService", () => {
   beforeEach(() => {

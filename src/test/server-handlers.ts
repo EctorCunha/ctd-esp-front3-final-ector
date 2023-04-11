@@ -1,9 +1,9 @@
 import { rest } from "msw";
-import comics from "./mocks/comics";
-import character from "./mocks/character";
-import comic from "./mocks/comic";
-import comicsWithOffsetAndLimit from "./mocks/comicsWithOffsetAndLimit";
-import comicWithoutStock from "./mocks/comicWithoutStock";
+import comics from "../test/mocks/comics";
+import character from "../test/mocks/character";
+import comic from "../test/mocks/comic";
+import comicsWithOffsetAndLimit from "../test/mocks/comicsWithOffsetAndLimit";
+import comicWithoutStock from "../test/mocks/comicWithoutStock";
 
 const handlers = [
   rest.get("/marvel/api/comics", async (req, res, ctx) => {

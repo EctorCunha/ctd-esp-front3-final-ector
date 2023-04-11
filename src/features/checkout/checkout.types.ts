@@ -1,7 +1,6 @@
 export type CheckoutInput = {
-  map?: any;
   customer: {
-    firstname: string;
+    name: string;
     lastname: string;
     email: string;
     address: {
@@ -23,5 +22,4 @@ export type CheckoutInput = {
     image: string;
     price: number;
   };
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

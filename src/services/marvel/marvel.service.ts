@@ -1,5 +1,5 @@
 import { Comic, GetComics } from "../../types/getComics";
-import { generateAuthenticationString } from "./marvel-auth.service";
+import { generateAuthenticationString } from "../../services/marvel/marvel-auth.service";
 
 const MARVEL_API_URL = process.env.NEXT_PUBLIC_MARVEL_API_URL;
 
@@ -19,10 +19,8 @@ export const getComics = async (offset?: number, limit?: number) => {
 
 export const getComic = async (comicId: number) => {
   const data = await fetchApi(`comics/${comicId}`);
-  console.log(data)
-  const results = data.data.results;
-  console.log(results)
-  if (results.length > 0) {
+  const results = data?.data?.results;
+  if (results?.length > 0) {
     const comic = results[0];
     if (`${comic.id}`.endsWith("0")) {
       comic.price = 48;
@@ -39,6 +37,7 @@ export const getComic = async (comicId: number) => {
 
 export const getCharacter = async (characterId: number) => {
   const data = (await fetchApi(`characters/${characterId}`)) as GetComics;
-  const results = data.data.results;
-  return results;
+  const results = data?.data?.results;
+  if (results?.length > 0) return results[0];
+  else return null;
 };

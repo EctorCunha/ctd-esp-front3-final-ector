@@ -1,11 +1,20 @@
 import * as React from "react";
-import {Card, CardActions, CardContent, CardMedia, Button, Typography, List, ListItem} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
-import { Comic } from "../../types/getComics";
-import { letterCounter } from "src/helper/letterCounter";
+import { Comic } from "../../types/getComic";
+import { letterCounter } from "../../helper/letterCounter";
+import { useCartContext } from "../../contexts/cart";
 
-export default function CardHero({ thumbnail, title, description, prices, id }: Comic) {
+export default function CardHero(comic: Comic) {
+  const { title, description, thumbnail, stock, prices, characters, id } = comic;
+  const thumb = `${thumbnail.path}.${thumbnail.extension}`;
   const { push } = useRouter();
+  const { setCart } = useCartContext();
 
   return (
     <Card
@@ -15,6 +24,7 @@ export default function CardHero({ thumbnail, title, description, prices, id }: 
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        backgroundColor:'#495057'
       }}
     >
       <CardMedia
@@ -32,11 +42,23 @@ export default function CardHero({ thumbnail, title, description, prices, id }: 
           {letterCounter(description, 120)}
         </Typography>
       </CardContent>
-      <CardActions sx={{margin:'auto', gap:'2rem'}}>
-        <Button variant="contained" onClick={() => push(`/checkout/${id}`)} size="small">
-          Comprar
+      <CardActions sx={{margin:'auto', gap:'3rem'}}>
+        <Button
+          onClick={() => {
+            setCart({
+              prices: comic.prices[0].price,
+              stock: comic.stock,
+              thumbnail: thumb,
+              title: comic.title,
+              description: comic.description,
+            });
+
+            push("/checkout/checkout");
+          }}
+         variant="contained" size="small">Comprar</Button>
+        <Button variant="contained" size="small" onClick={() => push(`/comic/${id}`)}>
+          Ver Detalhes
         </Button>
-        <Button variant="contained" onClick={() => push(`/comic/${id}`)} size="small">Ver Detalhes</Button>
       </CardActions>
     </Card>
   );

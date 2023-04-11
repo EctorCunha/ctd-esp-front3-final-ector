@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import BodySingle from "./body-single";
+import BodySingle from "../../../../components/layouts/body/single/body-single";
 
 describe("BodySingle", () => {
   describe("when rendering default layout", () => {

@@ -8,9 +8,7 @@ export interface GetComics {
 }
 
 export interface Character {
-  data: any;
-  items: any;
-  comics: Comics[];
+  comics: Comics;
   description: string;
   events: Events;
   id: number;
@@ -22,7 +20,6 @@ export interface Character {
   thumbnail: Thumbnail;
   urls: Url[];
   total: number;
-  title: string;
 }
 
 export interface Comics {
@@ -67,9 +64,8 @@ export interface Stories {
 }
 
 export interface Thumbnail {
-  path: any;
   extension: string;
-  url: string;
+  path: string;
 }
 
 export interface Url {

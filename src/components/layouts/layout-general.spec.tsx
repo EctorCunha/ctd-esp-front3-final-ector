@@ -1,16 +1,18 @@
 import { render, screen } from "@testing-library/react";
-import LayoutGeneral from "./layout-general";
+import LayoutGeneral from "../../components/layouts/layout-general";
+import GeneralHeader from "./header/general-header.component";
+import GeneralFooter from "./footer/general-footer.component";
 
 jest.mock(
-  "../components/layouts/header/general-header.component",
+  "../../components/layouts/header/general-header.component",
   () => () => {
-    return <div>Header</div>;
+    return <GeneralHeader />;
   }
 );
 jest.mock(
-  "../components/layouts/footer/general-footer.component",
+  "../../components/layouts/footer/general-footer.component",
   () => () => {
-    return <div>Footer</div>;
+    return <GeneralFooter />;
   }
 );
 
@@ -28,7 +30,7 @@ describe("LayoutGeneral", () => {
     it("should render the header", () => {
       render(
         <LayoutGeneral>
-          <p>children</p>
+          <GeneralHeader />
         </LayoutGeneral>
       );
       const header = screen.getByText("Header");
@@ -37,7 +39,7 @@ describe("LayoutGeneral", () => {
     it("should render the footer", () => {
       render(
         <LayoutGeneral>
-          <p>children</p>
+          <GeneralFooter />
         </LayoutGeneral>
       );
       const footer = screen.getByText("Footer");

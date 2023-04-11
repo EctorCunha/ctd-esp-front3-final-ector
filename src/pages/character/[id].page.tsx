@@ -1,11 +1,22 @@
-import CharacterInfo from "../../components/comic-details";
-import { getCharacter } from "src/services/marvel/marvel.service";
+import CharacterInfo from "../../components/card-character";
+import { getCharacter } from "../../services/marvel/marvel.service";
+import { isEmpty } from "lodash";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import React from "react";
 import { Character } from "../../types/getCharacter";
+import Head from "next/head";
 
-export default function Index( data: Character ) {
-  return <CharacterInfo {...data} />;
+export default function Index({ data }: { data: Character }) {
+  return (
+    <>
+    <Head>
+      <title>Marvel Comics</title>
+      <meta name="description" content="Marvel Comics - CTD" />
+      <link rel="icon" href="/marvel-comics.png" />
+    </Head>
+  <CharacterInfo {...data} />;
+  </>
+  )
 }
 
 type Params = {

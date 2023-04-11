@@ -1,21 +1,31 @@
-import ComicInfo from "../../components/buy-comic";
+import React from "react";
+import Head from "next/head";
+import ComicInfo from "../../components/buy";
 import { getComic, getComics } from "../../services/marvel/marvel.service";
 import { GetStaticPaths, GetStaticPropsContext } from "next";
-import React from "react";
 import { Comic } from "../../types/getComic";
 
 export default function Index(data: Comic) {
-  return <ComicInfo {...data} />;
+  return (
+    <>
+    <Head>
+      <title>Marvel Comics</title>
+      <meta name="description" content="Marvel Comics - CTD" />
+      <link rel="icon" href="/marvel-comics.png" />
+    </Head>
+  <ComicInfo {...data} />;
+  </>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data: comics } = await getComics(100, 100);
 
   const data = comics.results
-    .filter((comic: { thumbnail: any; description: any; }) => !!comic.thumbnail && !!comic.description)
+    .filter((comic) => !!comic.thumbnail && !!comic.description)
     .slice(0, 12);
 
-  const paths = data.map((comic: { id: { toString: () => any; }; }) => {
+  const paths = data.map((comic) => {
     return {
       params: {
         id: comic.id.toString(),
@@ -38,7 +48,10 @@ export const getStaticProps = async (ctx: GetStaticPropsContext<Params>) => {
 
   const comic = await getComic(Number(params?.id));
 
-  if (!comic) return;
+  if (!comic)
+    return {
+      notFound: true,
+    };
 
   return {
     props: comic,

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import GeneralHeader from "./general-header.component";
+import GeneralHeader from "../../../components/layouts/header/general-header.component";
 import { AppBarProps } from "@mui/material";
 
 jest.mock("@mui/material/AppBar", () => (props: AppBarProps) => {

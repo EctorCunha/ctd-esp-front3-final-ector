@@ -1,14 +1,15 @@
 import { render, screen } from "@testing-library/react";
-// import IndexPage from "dh-marvel/pages/index.page";
 import Index from "../pages/index.page";
 
 describe("IndexPage", () => {
   describe("when rendering default", () => {
-    it("should render the title", () => {
+    it("should render the card", () => {
       render(<Index data={[]} />);
       const foo = 1
-      const title = screen.getByText("Sample");
-      expect(title).toBeInTheDocument();
+      const card = screen.getByRole('button', {
+        name: /Comprar/i,
+      });
+      expect(card).toBeInTheDocument();
     });
   });
 });
